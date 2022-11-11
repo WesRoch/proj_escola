@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="templateMaster.master.cs" Inherits="prjEscola.templateMaster" %>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="Content/bootadmin.min.css" rel="stylesheet" />
+
+    <title>Administração</title>
+</head>
+<body class="bg-light">
+    <form runat="server">
+        <asp:ScriptManager runat="server" EnablePartialRendering="true">
+            <Scripts>
+                <asp:ScriptReference Name="jquery" />
+
+            </Scripts>
+        </asp:ScriptManager>
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+            <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+            <a class="navbar-brand" href="#">Projeto Escola</a>
+
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-envelope"></i>5</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-bell"></i>3</a></li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="d-flex">
+            <div class="sidebar sidebar-white bg-white">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#sm_expand_1" data-toggle="collapse">
+                            <i class="fa fa-fw fa-edit"></i>Cadastro
+                        </a>
+                        <ul id="sm_expand_1" class="list-unstyled collapse">
+                            <li><a href="CAluno.aspx">Aluno</a></li>
+                            <li><a href="CCurso.aspx">Curso</a></li>
+                            <li><a href="CTurma.aspx">Turma</a></li>
+                            <li><a href="CInstrutor.aspx">Instrutor</a></li>
+
+                            <li><a href="#">Submenu Item</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Ajuda</a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#sm_expand_2" data-toggle="collapse">
+                            <i class="fa fa-fw fa-archive"></i>Movimentação
+                        </a>
+                        <ul id="sm_expand_2" class="list-unstyled collapse">
+                            <li><a href="CInstrutor.aspx">Matrícula</a></li>
+                        </ul>
+
+                    </li>
+
+
+                    <li>
+                        <a href="#sm_expand_3" data-toggle="collapse">
+                            <i class="fa fa-fw fa-file-alt"></i>Relatórios
+                        </a>
+                        <ul id="sm_expand_3" class="list-unstyled collapse">
+                            <li><a href="CInstrutor.aspx">Relatório 1</a></li>
+                            <li><a href="CInstrutor.aspx">Relatório 2</a></li>
+                            <li><a href="CInstrutor.aspx">Relatório 3</a></li>
+                        </ul>
+
+
+                    </li>
+                    <li><a href="#"><i class="fa fa-fw fa-link"></i>Ajuda</a></li>
+                </ul>
+            </div>
+
+            <div class="content p-4">
+                <div class="card mb-4">
+
+                    <div class="card-body">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="Scripts/jquery.min.js"></script>
+        <%--Versao 3.3.1--%>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
+        <script src="Scripts/bootadmin.min.js"></script>
+    </form>
+</body>
+</html>
