@@ -43,7 +43,7 @@
                         <ul id="sm_expand_1" class="list-unstyled collapse">
                             <li><a href="CAluno.aspx">Aluno</a></li>
                             <li><a href="CCurso.aspx">Curso</a></li>
-                            <li><a href="CTurma.aspx">Turma</a></li>
+                            <li><a href="pgTurma.aspx">Turma</a></li>
                             <li><a href="CInstrutor.aspx">Instrutor</a></li>
 
                             <li><a href="#">Submenu Item</a></li>
