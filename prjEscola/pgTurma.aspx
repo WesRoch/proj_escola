@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div class="card">
+            <div class="card efeito-painel-2">
                 <div class="card-header bg-dark text-white">
                     Cadastro de Turmas
                 </div>
@@ -35,45 +35,47 @@
                             <asp:TextBox ID="txtCargaHoraria" runat="server" Columns="50" CssClass="form-control" MaxLength="50" Width="100%" TabIndex="1"></asp:TextBox>
                         </div>
                     </div>
-                    <div>
-                        <asp:Label ID="lblTurmasCadastradas" runat="server" Text="Turmas Cadastradas"></asp:Label>
-                        <asp:GridView ID="gvTurmas" runat="server" AutoGenerateColumns="False" DataKeyNames="IDTURMA"
-                            OnRowCommand="gvTurmas_RowCommand" OnSelectedIndexChanged="gvTurmas_SelectedIndexChanged">
-                            <Columns>
-                                <asp:TemplateField HeaderText="NOME_TURMA">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="lblTurma" runat="server" CommandArgument='<%#Eval("IDTURMA").ToString()+"|"+Container.DataItemIndex.ToString()%>'
-                                            Text='<%#(Eval("NOME_TURMA").ToString()) %>'>
-                                        </asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="DATA_INICIO" HeaderText="DATA_INICIO" />
-                                <asp:BoundField DataField="DATA_FIM" HeaderText="DATA_FIM" />
-                                <asp:BoundField DataField="CARGA_HORARIA" HeaderText="CARGA_HORARIA" />
-                            </Columns>
-                            <SelectedRowStyle BackColor="Yellow" />
-                        </asp:GridView>
-                    </div>
+                    <fieldset>
+                        <div>
+                            <asp:Label ID="lblTurmasCadastradas" runat="server" Text="Turmas Cadastradas"></asp:Label>
+                            <asp:GridView ID="gvTurmas" runat="server" AutoGenerateColumns="False" DataKeyNames="idTurma"
+                                OnRowCommand="gvTurmas_RowCommand" OnSelectedIndexChanged="gvTurmas_SelectedIndexChanged">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="NOME_TURMA">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="lblTurma" runat="server" CommandArgument='<%#Eval("IDTURMA").ToString()+"|"+Container.DataItemIndex.ToString()%>'
+                                                Text='<%#(Eval("NOME_TURMA").ToString()) %>'>
+                                            </asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField DataField="DATA_INICIO" HeaderText="DATA_INICIO" />
+                                    <asp:BoundField DataField="DATA_FIM" HeaderText="DATA_FIM" />
+                                    <asp:BoundField DataField="CARGA_HORARIA" HeaderText="CARGA_HORARIA" />
+                                </Columns>
+                                <SelectedRowStyle BackColor="Yellow" />
+                            </asp:GridView>
+                        </div>
+                    </fieldset>
                 </div>
                 <div class="card-footer">
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <asp:Button ID="cmdConfirmar" runat="server" Font-Bold="True"
-                                    Text="Incluir" CssClass="btn btn-dark" Width="100%" />
-                            </div>
-                            <div class="col-md-3">
-                                <asp:Button ID="cmdExluir" runat="server" Font-Bold="True"
-                                    Text="Excluir" CssClass="btn btn-dark" Width="100%" />
-                            </div>
-                            <div class="col-md-3">
-                                <asp:Button ID="cmdLimpar" runat="server" Font-Bold="True"
-                                    Text="Limpar" CssClass="btn btn-dark" Width="100%" />
-                            </div>
-                            <div class="col-md-3">
-                                <asp:Button ID="cmdSair" runat="server" Font-Bold="True"
-                                    Text="Sair" CssClass="btn btn-dark" Width="100%" />
-                            </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <asp:Button ID="cmdConfirmar" runat="server" Font-Bold="True"
+                                Text="Incluir" CssClass="btn btn-dark" Width="100%" />
                         </div>
+                        <div class="col-md-3">
+                            <asp:Button ID="cmdExluir" runat="server" Font-Bold="True"
+                                Text="Excluir" CssClass="btn btn-dark" Width="100%" />
+                        </div>
+                        <div class="col-md-3">
+                            <asp:Button ID="cmdLimpar" runat="server" Font-Bold="True"
+                                Text="Limpar" CssClass="btn btn-dark" Width="100%" />
+                        </div>
+                        <div class="col-md-3">
+                            <asp:Button ID="cmdSair" runat="server" Font-Bold="True"
+                                Text="Sair" CssClass="btn btn-dark" Width="100%" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </ContentTemplate>
