@@ -8,9 +8,13 @@
                     Cadastro de Turmas
                 </div>
                 <div class="card-body">
+                    <div>
+                        <asp:Label ID="lblNome" runat="server" Text="Nome Turma"></asp:Label>
+                        <asp:TextBox ID="txtNomeTurma" runat="server" Columns="50" CssClass="form-control" MaxLength="50" Width="100%" TabIndex="1"></asp:TextBox>
+                    </div>
                     <div class="form-group">
                         <asp:Label ID="lblCurso" runat="server" Text="Curso"></asp:Label>
-                        <asp:DropDownList ID="cboCurso" runat="server" CssClass="form-control"></asp:DropDownList>
+                        <asp:DropDownList ID="cboCurso" runat="server" CssClass="form-control" OnSelectedIndexChanged="cboCurso_SelectedIndexChanged"></asp:DropDownList>
                     </div>
                     <div class="form-group">
                         <asp:Label ID="lblInstrutor" runat="server" Text="Instrutor"></asp:Label>
@@ -20,7 +24,7 @@
                         <div class="col-md-4">
                             <label for="lblDataInicio">
                                 Data Inicio</label>
-                            <asp:TextBox ID="txtDataInixio" runat="server" Columns="50" CssClass="form-control" MaxLength="50" Width="100%" TabIndex="1"></asp:TextBox>
+                            <asp:TextBox ID="txtDataInicio" runat="server" Columns="50" CssClass="form-control" MaxLength="50" Width="100%" TabIndex="1"></asp:TextBox>
                         </div>
                         <div class="col-md-4">
                             <label for="lblTermino">
@@ -39,9 +43,9 @@
                         <div>
                             <asp:Label ID="lblTurmasCadastradas" runat="server" Text="Turmas Cadastradas"></asp:Label>
                             <asp:GridView ID="gvTurmas" runat="server" AutoGenerateColumns="False" DataKeyNames="idTurma"
-                                OnRowCommand="gvTurmas_RowCommand" OnSelectedIndexChanged="gvTurmas_SelectedIndexChanged">
+                                >
                                 <Columns>
-                                    <asp:TemplateField HeaderText="NOME_TURMA">
+                                    <asp:TemplateField HeaderText="NOME TURMA">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lblTurma" runat="server" CommandArgument='<%#Eval("IDTURMA").ToString()+"|"+Container.DataItemIndex.ToString()%>'
                                                 Text='<%#(Eval("NOME_TURMA").ToString()) %>'>
@@ -61,7 +65,7 @@
                     <div class="form-group row">
                         <div class="col-md-3">
                             <asp:Button ID="cmdConfirmar" runat="server" Font-Bold="True"
-                                Text="Incluir" CssClass="btn btn-dark" Width="100%" />
+                                Text="Incluir" CssClass="btn btn-dark" Width="100%" OnClick="cmdConfirmar_Click" />
                         </div>
                         <div class="col-md-3">
                             <asp:Button ID="cmdExluir" runat="server" Font-Bold="True"

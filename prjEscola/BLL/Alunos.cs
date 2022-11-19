@@ -1,5 +1,5 @@
 ﻿using prjEscola.App_Code.BLL;
-using prjEscola.App_Code.DAL;
+using prjEscola.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;

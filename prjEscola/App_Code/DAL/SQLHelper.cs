@@ -26,7 +26,7 @@ using System.Xml;
 using System.Data.SqlClient;
 using System.Collections;
 
-namespace prjEscola.App_Code.DAL
+namespace prjEscola.DAL
 {
     /// <summary>
     /// The SqlHelper class is intended to encapsulate high performance, scalable best practices for 

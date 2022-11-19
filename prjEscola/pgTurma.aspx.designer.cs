@@ -24,6 +24,24 @@ namespace prjEscola
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
+        /// Controle lblNome.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNome;
+
+        /// <summary>
+        /// Controle txtNomeTurma.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNomeTurma;
+
+        /// <summary>
         /// Controle lblCurso.
         /// </summary>
         /// <remarks>
@@ -60,13 +78,13 @@ namespace prjEscola
         protected global::System.Web.UI.WebControls.DropDownList cboInstrutor;
 
         /// <summary>
-        /// Controle txtDataInixio.
+        /// Controle txtDataInicio.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataInixio;
+        protected global::System.Web.UI.WebControls.TextBox txtDataInicio;
 
         /// <summary>
         /// Controle txtDataFim.

@@ -212,11 +212,9 @@
     <Content Include="templateMaster.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\Curso.cs" />
     <Compile Include="BLL\Funcoes.cs" />
     <Compile Include="App_Code\DAL\SQLHelper.cs" />
-    <Content Include="BLL\Curso.cs" />
-    <Content Include="BLL\Turma.cs" />
-    <Content Include="BLL\Instrutor.cs" />
     <Compile Include="BLL\Alunos.cs" />
     <Content Include="BLL\Matricula.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -228,6 +226,8 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\Instrutor.cs" />
+    <Compile Include="BLL\Turma.cs" />
     <Compile Include="CAluno.aspx.cs">
       <DependentUpon>CAluno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
