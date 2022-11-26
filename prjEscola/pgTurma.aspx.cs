@@ -17,6 +17,7 @@ namespace prjEscola
             {
                 PreencheGridCurso();
                 PreencheGridInstrutor();
+                PreencherGridTurma();
             }
         }
         protected void cboCurso_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,12 +54,82 @@ namespace prjEscola
             }
             else
             {
-                //turma Alterar()
+                turma.IdTurma = Convert.ToInt32(gvTurmas.DataKeys[gvTurmas.SelectedIndex].Values[0]);
+                turma.Alterar(turma.IdTurma);
             }
+            LimparCampos();
+        }
+
+        void LimparCampos()
+        {
+            cboCurso.SelectedIndex = 0;
+            cboInstrutor.SelectedIndex = 0;
+            txtNomeTurma.Text = "";
+            txtDataFim.Text = "";
+            txtDataInicio.Text = "";
+            txtCargaHoraria.Text = "";
+            cmdConfirmar.Text = "Incluir";
+            Formatar_Grid();
+        }
+
+        void MostrarDados(Int32 cod_turma)
+        {
+            Turma turma = new Turma();
+            turma.MostrarDados_Turma(cod_turma);
+            // codigo_aluno = aluno.Id_aluno; //variavel que recebe o id_aluno
+            cboCurso.SelectedValue = Convert.ToString(turma.IdTurma);
+            cboInstrutor.SelectedValue = Convert.ToString(turma.IdInstrutor);
+            txtDataInicio.Text = Convert.ToString(turma.Data_inicio);
+            txtDataFim.Text = Convert.ToString(turma.Data_fim);
+            txtCargaHoraria.Text = Convert.ToString(turma.Carga_horaria);
+            txtNomeTurma.Text = Convert.ToString(turma.nome_turma);
+
+
         }
         protected void cmdConfirmar_Click(object sender, EventArgs e)
         {
             AdicionarTurma();
+        }
+
+        protected void cmdExluir_Click(object sender, EventArgs e)
+        {
+            Turma turma = new Turma();
+            turma.Excluir(Convert.ToInt32(gvTurmas.DataKeys[gvTurmas.SelectedIndex].Values[0]));
+            PreencherGridTurma();
+        }
+        void PreencherGridTurma()
+        {
+            gvTurmas.DataSource = Turma.PreencheGridTurma();
+            gvTurmas.DataBind();
+        }
+        void Formatar_Grid()
+        {
+            if (!(gvTurmas.HeaderRow is null))
+            {
+                gvTurmas.UseAccessibleHeader = true;
+                gvTurmas.HeaderRow.TableSection = TableRowSection.TableHeader;
+                AplicarDataTableGridView();
+            }
+        }
+        public void AplicarDataTableGridView()
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "minhaFuncao", "aplicarDataTable()", true);
+        }
+
+        protected void gvTurmas_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var parametros = e.CommandArgument.ToString().Split('|');
+
+            MostrarDados(Convert.ToInt32(parametros[0]));
+            int indiceLinha = Convert.ToInt32(parametros[1]);
+            gvTurmas.SelectedIndex = indiceLinha;
+            cmdConfirmar.Text = "Alterar";
+            cmdExluir.Enabled = true;
+        }
+
+        protected void gvTurmas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmdConfirmar.Text = "Alterar";
         }
     }
 }

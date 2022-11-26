@@ -42,8 +42,7 @@
                     <fieldset>
                         <div>
                             <asp:Label ID="lblTurmasCadastradas" runat="server" Text="Turmas Cadastradas"></asp:Label>
-                            <asp:GridView ID="gvTurmas" runat="server" AutoGenerateColumns="False" DataKeyNames="idTurma"
-                                >
+                            <asp:GridView ID="gvTurmas" runat="server" AutoGenerateColumns="False" DataKeyNames="idTurma" OnRowCommand="gvTurmas_RowCommand" OnSelectedIndexChanged="gvTurmas_SelectedIndexChanged">
                                 <Columns>
                                     <asp:TemplateField HeaderText="NOME TURMA">
                                         <ItemTemplate>
@@ -56,7 +55,7 @@
                                     <asp:BoundField DataField="DATA_FIM" HeaderText="DATA_FIM" />
                                     <asp:BoundField DataField="CARGA_HORARIA" HeaderText="CARGA_HORARIA" />
                                 </Columns>
-                                <SelectedRowStyle BackColor="Yellow" />
+                                <SelectedRowStyle BackColor="Green" />
                             </asp:GridView>
                         </div>
                     </fieldset>
@@ -69,7 +68,7 @@
                         </div>
                         <div class="col-md-3">
                             <asp:Button ID="cmdExluir" runat="server" Font-Bold="True"
-                                Text="Excluir" CssClass="btn btn-dark" Width="100%" />
+                                Text="Excluir" CssClass="btn btn-dark" Width="100%" OnClick="cmdExluir_Click" />
                         </div>
                         <div class="col-md-3">
                             <asp:Button ID="cmdLimpar" runat="server" Font-Bold="True"
@@ -84,4 +83,36 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <script>
+
+        function aplicarDataTable() {
+            var dt = $('#MainContent_gvTurmas').DataTable({
+                "language": {
+                    "lengthMenu": 'Mostrar <select>' +
+                        '<option value="5">05</option>' +
+                        '<option value="10">10</option>' +
+                        '<option value="20">30</option>' +
+                        '</select> Operações',
+                    "emptyTable": "Nenhum registro encontrado",
+                    "search": "Pesquisar Clientes:",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoFiltered": "(filtrado _MAX_ do total Alunos)",
+                    "paginate": {
+                        "first": "Primeiro",
+                        "last": "Último",
+                        "next": "Próximo",
+                        "previous": "Anterior"
+                    }
+                },
+                "pageLength": 5,
+                "scrollY": "300px",
+                "scrollCollapse": true,
+                "destroy": true
+            });
+
+            return dt;
+        }
+        aplicarDataTable();
+
+    </script>
 </asp:Content>

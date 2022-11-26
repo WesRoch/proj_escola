@@ -9,6 +9,10 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/fontawesome-all.min.css" rel="stylesheet" />
     <link href="Content/bootadmin.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <title>Administração</title>
 </head>
@@ -91,11 +95,13 @@
             </div>
         </div>
 
-
         <script src="Scripts/jquery.min.js"></script>
         <%--Versao 3.3.1--%>
         <script src="Scripts/bootstrap.bundle.min.js"></script>
-        <script src="Scripts/bootadmin.min.js"></script>
+        <script src="Scripts/bootadmin.min.js"></script>         
+         <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     </form>
 </body>
 </html>
